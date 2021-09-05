@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/habitListFragment"
+        android:name="com.example.habit_mood_tracker_v2.ui.fragments.habitlist.HabitListFragment"
+        android:label="Habits"
+        tools:layout="@layout/fragment_habit_list">
+        <action
+            android:id="@+id/action_habitListFragment_to_addHabitFragment"
+            app:destination="@id/addHabitFragment" />
+        <action
+            android:id="@+id/action_habitListFragment_to_updateHabitItemFragment"
+            app:destination="@id/updateHabitItemFragment" />
+        <action
+            android:id="@+id/action_habitListFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addHabitFragment"
+        android:name="com.example.habit_mood_tracker_v2.ui.fragments.addhabit.AddHabitFragment"
+        android:label="Add habit"
+        tools:layout="@layout/fragment_add_habit">
+        <action
+            android:id="@+id/action_addHabitFragment_to_habitListFragment"
+            app:destination="@id/habitListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateHabitItemFragment"
+        android:name="com.example.habit_mood_tracker_v2.ui.fragments.updatehabit.UpdateHabitItemFragment"
+        android:label="Update habit"
+        tools:layout="@layout/fragment_update_habit_item">
+        <action
+            android:id="@+id/action_updateHabitItemFragment_to_habitListFragment"
+            app:destination="@id/habitListFragment" />
+        <argument
+            android:name="selectedHabit"
+            app:argType="com.example.habit_mood_tracker_v2.data.models.Habit" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.habit_mood_tracker_v2.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_habitListFragment"
+            app:destination="@id/habitListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_moodFragment"
+            app:destination="@id/moodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moodFragment"
+        android:name="com.example.habit_mood_tracker_v2.ui.fragments.moodlist.MoodListFragment"
+        android:label="fragment_mood"
+        tools:layout="@layout/fragment_mood_list">
+        <action
+            android:id="@+id/action_moodFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_moodFragment_to_addMoodFragment"
+            app:destination="@id/addMoodFragment" />
+        <action
+            android:id="@+id/action_moodFragment_to_updateMoodItemFragment"
+            app:destination="@id/updateMoodItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMoodFragment"
+        android:name="com.example.habit_mood_tracker_v2.ui.fragments.addmood.AddMoodFragment"
+        android:label="fragment_add_mood2"
+        tools:layout="@layout/fragment_add_mood">
+        <action
+            android:id="@+id/action_addMoodFragment_to_moodFragment"
+            app:destination="@id/moodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateMoodItemFragment"
+        android:name="com.example.habit_mood_tracker_v2.ui.fragments.updatemood.UpdateMoodItemFragment"
+        android:label="fragment_update_mood_item2"
+        tools:layout="@layout/fragment_update_mood_item">
+        <action
+            android:id="@+id/action_updateMoodItemFragment_to_moodFragment"
+            app:destination="@id/moodFragment" />
+        <argument
+            android:name="selectedMood"
+            app:argType="com.example.habit_mood_tracker_v2.data.models.Mood" />
+    </fragment>
+</navigation>
